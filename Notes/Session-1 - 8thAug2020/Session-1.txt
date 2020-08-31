@@ -1,0 +1,193 @@
+- Don't blindly believe on the Google/internet serach result
+- Find out how to read the RAM data
+- Learn internals of API/methods we use often in the language, like printf
+- The best way to learn correctly about anything is to learn from the creator of it. (Coonect with the creator directly or via their books, blogs, talks, etc...)
+- The second best approach will be shared in upcoming class.
+- If you want to create or build something new learn core/basic concepts deeply. (of any framework or technology you use)
+	So that you can build anything new from zero or will not get stuck if the library has some limitations
+- Python: Is used in most of the areas like Automation, Web Development(WebUI), Data Science, Artificial Intelligence, Machine Learning, BigData, IoT, Mobile Website (Mobile UI), even Mobile App ans so on...
+- Programming Languages are a way to communicate between Human and OS(Computer).
+- Mainly we want to talk to hardware via software to fulfil our requirements. Hardware can include Graphic Card, RAM, Network Card, CPU, Sound Card(to play song via speakers), etc..
+- OS communicates with hardware and fulfils our requirements, hence we need to talk to only OS
+- OS understands mainly via its own commands (translated into binary) or sometimes via GUI tasks/events.
+- To make OS understand/learn any programming language we need to have extra software to teach OS that particular language. In case of Python that is a Python Interpreter, which will make OS to understand Python language commands.
+- Install via Anaconda with selecting add to PATH option checkbox
+- We will learn Python in this course to give commands to OS(via python interpreter) to do our job
+- Python REPL, python interpreter via cmd. Open cmd/terminal/shell and type python or python3 and you will enter into a python interpreter or REPL mode.
+
+- print function:
+		print("Hello")
+	is a statement
+- How to tell OS to store some value say number 5 to RAM (save it for future use)
+	Store the data into a named memory box (variable) into RAM, the python statement for this is
+		x = 5
+	Now, the value 5 is stored into RAM and in a memory box named x, so that we can retrieve this in future by it's name.
+	(Without this we will not be knowing where we have stored the value 5 in the memory and use it in future in our program)
+- Use exit() to come out of a python interpreter mode.
+- Once the program is ended, the values in the RAM are erased and no more exist. You can double check this by re-entering into Python interpreter and check the value of x. You will get error like:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'x' is not defined
+
+- You can interact with OS mainly via 2 modes Graphical User Interface(GUI) and CLI(Command Line Interface)
+- How can we use Python to talk to OS. like to launch notepad, or windows media player.
+- We can use system method to launch any system program(should be present on PATH or use start along with program name)
+	Examples:
+		system("notepad")
+	
+	But, this will give you below error:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'system' is not defined
+
+- Built-in functions are present inside core python library.But external functions like system(), needs to be loaded from outside python code files called modules.
+- We use import statement to do load the external modules into our program. So to import system function we need to import the module in which it is defined, which is "os" module.
+- So, below is the import statement for os module and using system function from it to launch notepad
+		import os
+		system("notepad")
+  This code will also fail with the same error as above, because still python doesn't know from where the system needs to be picked exactly. To tell this to python we have to explicitly use dot(.) operator like os.system
+  So the code will look like this:
+		import os
+		os.system("notepad")
+	
+	This will launch the notepad on windows machine.
+	So we are telling python to import os module first and then use system function from os module.
+	This whole code can alternatively be written as below:
+		from os import system
+		system("notepad")
+
+- Other examples:
+		os.system("vlc")
+		os.system("chrome")
+		os.system("chrome google.com")
+  if chrome is not working directly use start before the chrome command like this:
+		os.system("start chrome")
+		os.system("start chrome google.com")
+		
+- Above example, we can see that "os" module of python has a system function, which tells OS to launch applcations by just passing the program name which  our OS knows
+
+- Just like print, how can you use python to tell OS to speak(via our sound card and speakers) the string we write.
+		print("Hello")
+		speak("Hello")
+	
+	We can use pyttxs3 module for this. Let's try using that module now:
+		import pyttxs3
+	
+	you will see a error like below:
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'pyttsx3'
+
+	This error is because by default python installation or official python doesn't provide the module pyttsx3. So we need to install this manually to use it into our program.
+	You can install the (non-standard non-default) modules using pip (Python Index of Packages)
+	
+		pip install pyttsx3
+	
+	Once you install the pyttsx3 using above command, you can then use(import) the pyttsx3 module in your program and use required methods from it.
+	
+		import pyttsx3
+		pyttsx3.speak("Hi, how are you?")
+	
+	Whola!, you will see that your computer speaks and asks you "Hi, how are you?"
+
+Note: If you have 2 versions of python installed in your system one with anaconda and one directly from Python.org, you need to run commands(mainly for the pyttsx3 code) from the anaconda terminal or cmd prompt.
+Open Anaconda Navigator and launch the CMD.exe Prompt from Home - Applications on base(root) channel
+
+
+
+
+
+=================================================================================================================================================
+Important Links:
+
+- Youtube Session link: https://youtu.be/VW0PUBSxVxg
+
+- Anaconda Download Links:
+Windows:
+https://repo.anaconda.com/archive/Anaconda3-2020.07-Windows-x86_64.exe
+
+MacOS:
+https://repo.anaconda.com/archive/Anaconda3-2020.07-MacOSX-x86_64.pkg
+
+Linux:
+https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
+
+Other Architecture or Version:
+https://www.anaconda.com/products/individual
+
+- Official pages for pyttsx3:
+	- https://pypi.org/project/pyttsx3/
+	- https://pyttsx3.readthedocs.io/en/latest/
+	
+- Google Drive Link: https://drive.google.com/drive/folders/1RAJNUsdK2TWK94rrByaouXPkKDlR6-vb?usp=sharing
+
+
+
+
+
+========================================================================================================================
+- TODOs:
+	- Prove that variable of a running program is stored on RAM. i.e. How can you read the RAM and see the content
+	- Internals of printf method. Find how the function/API is written and internal working of it.
+	
+
+
+
+
+========================================================================================================================
+CMD outputs:
+
+C:\Users\rpatil>python
+Python 3.8.1 (tags/v3.8.1:1b293b6, Dec 18 2019, 23:11:46) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print("Hello")
+Hello
+>>> x = 5
+>>> x
+5
+>>> print(x)
+5
+>>> exit()
+
+C:\Users\rpatil>python
+Python 3.8.1 (tags/v3.8.1:1b293b6, Dec 18 2019, 23:11:46) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> x
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'x' is not defined
+>>> x = 5
+>>> x
+5
+>>> print(x)
+5
+>>> system("notepad")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'system' is not defined
+>>> import os
+>>> system("notepad")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'system' is not defined
+>>> os.system("notepad")
+0
+>>> from os import system
+>>> system("notepad")
+0
+>>> os.system("vlc")
+'vlc' is not recognized as an internal or external command,
+operable program or batch file.
+1
+>>> os.system("chrome")
+'chrome' is not recognized as an internal or external command,
+operable program or batch file.
+1
+>>> os.system("start chrome")
+0
+>>> os.system("start chrome google.com")
+0
+>>> import pyttsx3
+>>> pyttsx3.speak("Hi, how are you?")
+>>> pyttsx3.speak("Welcome to Python course")
+>>>

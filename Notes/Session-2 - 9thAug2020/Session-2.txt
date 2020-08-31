@@ -1,0 +1,447 @@
+Programming Modes:
+	- Offline Mode: Write code in a file and then execute it later. 
+	- Online Mode: Execute the code as and when it is written. Example: Python Live Interpreter(REPL)
+	- IDE Mode: PyCharm,
+
+- User must use/create a program to communicate with OS. (all notepad, player, browser, etc.. are programs)
+- We will be creating python programs to communicate with OS. Program is normally stored in hard disk/drive.
+- Once the program is launched and is available on memory(RAM) the program becomes process(and no more called a program)
+- And we actually communicate OS via process, and this is the only way to communicate with OS(using process)
+
+- Variables:
+	In any programming language if you want to store the data so that you can use it in future, then you need to store the data in a memory block(box) and give a name to it. This is called a variable.
+	So, variables are nothing but a block/box in a memory which we give some name to use it later.
+	In python, we use variables like below without mentioning it's data type unlike some other programming languages(like C, C++, Java)
+		x = 5
+	This creates a variable named x and assign value 5 to it.
+	Python doesn't require to mention the data type of the variable like int, float, string, etc.. It is automatically inferred from the righ hand side value. This is called "Type Inference".
+	Python infers the data type during runtime i.e. on the fly or dynamic determination of data type.
+	Because of this dynamic type intference, in Python, we can change the value and even data type of a variable later after assigning one data type to it.
+	So we can change x value to anything after defining it, like below:
+		x = 10
+		x = 3.5
+		x = "I am a string"
+		x = 'new string'
+		x = [1, 2, 3]
+	- In Python and also in most of the programming languages a value inside a double quote is always a string.
+	- In python strings can be created using double quotes or single quotes("string" or 'str')
+	- To know the data type of any data/variable in Python, we can use type() function like below:
+		type(x)
+		type(10)
+		type("Hi")
+	
+	- There is one more data type called boolean, which has only 2 values True or False like ON/OFF switch. This is used to get YES/NO answer or any other True/False checking tasks like isDoorOpen, isEnoughMoney, etc...
+		x = True
+		x = False
+		But, below is not a boolean but string:
+		x = "True"
+		x = "False"
+	- Python Live Interpreter is REPL(Read Eval Print Loop) and it evaluates and prints all the variables or data type literals typed in it.
+	- Use repl.it for online REPL
+
+- Lists
+	- Limitation of a normal variable: You can store only one value of only one data type at a time. What if we have a requirement where we want to store multiple names inside a single variable/box?
+	- To overcome this limitation we have list data type in python, where we can store list of any items/elements or any data types lik below:
+		x = [ "Vimal", "Kamal", "Krish"]
+	- Observe that list variable is enclosed in [] and inside this each list item/element is separated by comma(,)
+	- Pyhon List is similar to Array in many of the programming languages.(We will also see Pyhton Array later)
+	- We can refer to the individual list items/elements by their respective position/index in the list, starting from 0, 1, 2, etc...
+	- For example, in the above list called x, if we can write x[0] to refer to the name "Vimal", x[1] for "Kamal", x[2] for "Krish"
+	- The method of referring the list item/element by their index is known as indexing or list indexing.
+	
+	- We can use len() function to know the total number of items/elements present in the list.
+	- So, here len(x) will return us 3, since we have 3 items/elements in list x.
+	- Note: len() function can be used with strings as well.
+	
+	- Almost all of the tasks we do in a programming language are done using functions/methods. Like print, len, type, etc...
+	- Even the accessing the list items using x[0] is also a function behind the scene, which is defined as __getitem__()
+	- So, calling x[0] is equivalent to calling x.__getitem__(0), x[1] is equivalent to x.__getitem__(1) and so on...
+	- If we want to select the last item from the list we can use x[2] or x[-1] as well. Similarly x[-2] is for second last item and so on.
+	- Using -1 for last item will help when the list size is not known or it is very huge.
+	- List can store any data types including list itself. For example:
+		1. List with Random data types:
+				list1 = [1, 2, 3, "a", "b", "c", "d", 4.5, 7.9]
+		2. List of list, where each list item/element(which is list) is used to store id, name and phone number of students
+				students = [[1, "Vimal", 111111], [2, "Kamal", 222222], [3, "Ajay", 333333]]
+			To access first student 
+			
+		
+- List Slicing:
+	- Consider the below list:
+			y = ["a", "b", "c", "d", "e"]
+	- When we want to select mulipl items/elements fom a list we can use a slicing method using :
+	- Slicing has the format of list_variable[start:end:step] where all 3 parameters(start, end and step) are optional
+	- By default start=0(first item of list_variable), end=len(list_variable) and step=1(slice and give list items by one step, i.e. one by one)
+	- The slicing will start from "start" index and will include all the items from "start" index up to "end" index excluding "end" index (i.e. "end -1" index) in the steps of "step"(default is 1)
+	- So, list y can be also written as y[::] using slicing, i.e.  y == y[::]
+	- Now, if we want to select 2nd and 3rd item only from y, we can do this using y[1:3:1] or just y[1:3] as step is optional, which will give us output as: ['b', 'c']
+	- Since step is optional and can be ignored, we can ignore the last : always unless we want to mention step other than 1.
+	- Similary if you want to get list from 2nd item to the very end we can do this in multiple ways:
+			y[1:5] 	= start from 2nd item(index=1) and slice upto 6th item(index=5) excluding 6th item
+			y[1:]  	= start from 2nd item(index=1) and slice till the list ends
+			y[-4:5]	= start from the 2nd item(index=1 or index=-4) and slice upto 6th item(index=5) excluding 6th item
+	
+	- Exercse:
+		Consider the below list:
+			students = [[1, "Vimal", 111111], [2, "Kamal", 222222], [3, "Ajay", 333333], [4, "Vijay", 444444]]
+		Write a program using only list and related methods/concepts to get the column-wise data, i.e. to to get only names of the students from the above list students.
+		Don't use any other data structure or loops in your code.
+		Don't print the coluimn data one by one as the solution should be generic and should work with any number of students list.
+		
+	- Solution:
+		The solution with the given constraints is impossible because of the list design. List slicing, indexing, will work only work with per row-wise data but not per column-wise iteration.
+		This is the way the list is designed to support only per row-wise operation(data retrieval) but not per column-wise operation.
+		The problem can be solved using Arrays from numpy module which is not a built-in module.
+		
+	    - dir() function:
+			To see all the available attribtes(functions, methods, fields etc..) from a module we can use dir() function.
+			For numpy module we can see all the atributes using dir() function using dir(numpy)
+	    
+		We can solve the above problem using numpy array like below
+		
+			import numpy			
+			students = numpy.array(students)			
+			result = list(students[0:len(students), 1])			
+				OR				
+			result = list(students[:, 1])
+		
+	
+- Avantages and Disadvantages of a Live Interpreter:
+	- Advantages:
+		- Good for writing small code snippets
+		- Instant output
+		- Testing of small code output
+	- Disadvantages
+		- Not good for very large code/program
+		- Difficult to re-run the program without actually typing again or using the history menu(by up/down arrow)
+		- Once you exit the session with exit() command, all the history and written code is gone and is no more avaialable in the second session
+		- Code sharing is difficult from Live Interpreter
+
+
+		
+		
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+=================================================================================================================================================
+Important Links:
+
+
+
+
+
+
+
+
+===================================================================================================================
+TODOs:
+-
+
+
+
+
+
+
+
+
+===================================================================================================================
+CMD outputs:
+
+Python 3.8.3 (default, Jul  2 2020, 17:30:36) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> x = 5
+>>> x
+5
+>>>
+>>> x = 10
+>>> x
+10
+>>>
+>>> x = "I am a string"
+>>> x
+'I am a string'
+>>>
+>>> x = 'new string'
+>>> x
+'new string'
+>>>
+>>> x = [1, 2, 3]
+>>> x
+[1, 2, 3]
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> x = 5
+>>> type(x)
+<class 'int'>
+>>>
+>>> x = 'Hi'
+>>> type(x)
+<class 'str'>
+>>>
+>>> x = 3.5
+>>> type(x)
+<class 'float'>
+>>>
+>>>
+>>> type(5)
+<class 'int'>
+>>>
+>>> type('Hi')
+<class 'str'>
+>>>
+>>> type(3.5)
+<class 'float'>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> x = True
+>>> x
+True
+>>> type(x)
+<class 'bool'>
+>>> x = False
+>>> x
+False
+>>> type(x)
+<class 'bool'>
+>>>
+>>> x = "True"
+>>> x
+'True'
+>>> type(x)
+<class 'str'>
+>>>
+>>> x = "10"
+>>> x
+'10'
+>>> type(x)
+<class 'str'>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> "We are inside Python's Live interpreter, which is REPL"
+"We are inside Python's Live interpreter, which is REPL"
+>>>
+>>> "This line will be directly printed using REPL"
+'This line will be directly printed using REPL'
+>>>
+>>> 100
+100
+>>>
+>>> 12.5
+12.5
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> x = [ "Vimal", "Kamal", "Krish"]
+>>> x
+['Vimal', 'Kamal', 'Krish']
+>>> type(x)
+<class 'list'>
+>>>
+>>>
+>>> x[0]
+'Vimal'
+>>> x[1]
+'Kamal'
+>>> x[2]
+'Krish'
+>>> x[3]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>>
+>>>
+>>>
+>>> x[-1]
+'Krish'
+>>> x[-2]
+'Kamal'
+>>> x[-3]
+'Vimal'
+>>> x[-4]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> len(x)
+3
+>>> y = ["a", "b", "c", "d", "e"]
+>>> y
+['a', 'b', 'c', 'd', 'e']
+>>> len(y)
+5
+>>>
+>>>
+>>>
+>>> x.__getitem__(0)
+'Vimal'
+>>> x.__getitem__(1)
+'Kamal'
+>>> x.__getitem__(2)
+'Krish'
+>>> y.__getitem__(0)
+'a'
+>>> y.__getitem__(1)
+'b'
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> y = ['a', 'b', 'c', 'd', 'e']
+>>> y
+['a', 'b', 'c', 'd', 'e']
+>>> y[::]
+['a', 'b', 'c', 'd', 'e']
+>>> y == y[::]
+True
+>>> y[1:3:1]
+['b', 'c']
+>>> y[1:3]
+['b', 'c']
+>>>
+>>>
+>>>
+>>> y[1:5]
+['b', 'c', 'd', 'e']
+>>> y[1:]
+['b', 'c', 'd', 'e']
+>>> y[-4:5]
+['b', 'c', 'd', 'e']
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> students = [[1, "Vimal", 111111], [2, "Kamal", 222222], [3, "Ajay", 333333]]
+>>> students
+[[1, 'Vimal', 111111], [2, 'Kamal', 222222], [3, 'Ajay', 333333]]
+>>> students[0]
+[1, 'Vimal', 111111]
+>>> students[1]
+[2, 'Kamal', 222222]
+>>> students[2]
+[3, 'Ajay', 333333]
+>>> students[-1]
+[3, 'Ajay', 333333]
+>>> students[0]
+[1, 'Vimal', 111111]
+>>> students[0][0]
+1
+>>> students[0][1]
+'Vimal'
+>>> students[0][2]
+111111
+>>> students[1]
+[2, 'Kamal', 222222]
+>>> students[1][0]
+2
+>>> students[1][1]
+'Kamal'
+>>> students[1][2]
+222222
+>>> students[2]
+[3, 'Ajay', 333333]
+>>> students[2][0]
+3
+>>> students[2][1]
+'Ajay'
+>>> students[2][2]
+333333
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> dir(__builtins__)
+['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BlockingIOError', 'BrokenPipeError', 'BufferError', 'BytesWarning', 'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError', 'ConnectionRefusedError', 'ConnectionResetError', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EnvironmentError', 'Exception', 'False', 'FileExistsError', 'FileNotFoundError', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'InterruptedError', 'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'ModuleNotFoundError', 'NameError', 'None', 'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'PermissionError', 'ProcessLookupError', 'RecursionError', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'WindowsError', 'ZeroDivisionError', '_', '__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs', 'all', 'any', 'ascii', 'bin', 'bool', 'breakpoint', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'exit', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
+>>>
+>>>
+>>>
+>>> import numpy
+>>> dir(numpy)
+['ALLOW_THREADS', 'AxisError', 'BUFSIZE', 'CLIP', 'ComplexWarning', 'DataSource', 'ERR_CALL', 'ERR_DEFAULT', 'ERR_IGNORE', 'ERR_LOG', 'ERR_PRINT', 'ERR_RAISE', 'ERR_WARN', 'FLOATING_POINT_SUPPORT', 'FPE_DIVIDEBYZERO', 'FPE_INVALID', 'FPE_OVERFLOW', 'FPE_UNDERFLOW', 'False_', 'Inf', 'Infinity', 'MAXDIMS', 'MAY_SHARE_BOUNDS', 'MAY_SHARE_EXACT', 'MachAr', 'ModuleDeprecationWarning', 'NAN', 'NINF', 'NZERO', 'NaN', 'PINF', 'PZERO', 'RAISE', 'RankWarning', 'SHIFT_DIVIDEBYZERO', 'SHIFT_INVALID', 'SHIFT_OVERFLOW', 'SHIFT_UNDERFLOW', 'ScalarType', 'Tester', 'TooHardError', 'True_', 'UFUNC_BUFSIZE_DEFAULT', 'UFUNC_PYVALS_NAME', 'VisibleDeprecationWarning', 'WRAP', '_NoValue', '_UFUNC_API', '__NUMPY_SETUP__', '__all__', '__builtins__', '__cached__', '__config__', '__dir__', '__doc__', '__file__', '__getattr__', '__git_revision__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '__version__', '_add_newdoc_ufunc', '_distributor_init', '_globals', '_mat', '_pytesttester', 'abs', 'absolute', 'absolute_import', 'add', 'add_docstring', 'add_newdoc', 'add_newdoc_ufunc', 'alen', 'all', 'allclose', 'alltrue', 'amax', 'amin', 'angle', 'any', 'append', 'apply_along_axis', 'apply_over_axes', 'arange', 'arccos', 'arccosh', 'arcsin', 'arcsinh', 'arctan', 'arctan2', 'arctanh', 'argmax', 'argmin', 'argpartition', 'argsort', 'argwhere', 'around', 'array', 'array2string', 'array_equal', 'array_equiv', 'array_repr', 'array_split', 'array_str', 'asanyarray', 'asarray', 'asarray_chkfinite', 'ascontiguousarray', 'asfarray', 'asfortranarray', 'asmatrix', 'asscalar', 'atleast_1d', 'atleast_2d', 'atleast_3d', 'average', 'bartlett', 'base_repr', 'binary_repr', 'bincount', 'bitwise_and', 'bitwise_not', 'bitwise_or', 'bitwise_xor', 'blackman', 'block', 'bmat', 'bool', 'bool8', 'bool_', 'broadcast', 'broadcast_arrays', 'broadcast_to', 'busday_count', 'busday_offset', 'busdaycalendar', 'byte', 'byte_bounds', 'bytes0', 'bytes_', 'c_', 'can_cast', 'cast', 'cbrt', 'cdouble', 'ceil', 'cfloat', 'char', 'character', 'chararray', 'choose', 'clip', 'clongdouble', 'clongfloat', 'column_stack', 'common_type', 'compare_chararrays', 'compat', 'complex', 'complex128', 'complex64', 'complex_', 'complexfloating', 'compress', 'concatenate', 'conj', 'conjugate', 'convolve', 'copy', 'copysign', 'copyto', 'core', 'corrcoef', 'correlate', 'cos', 'cosh', 'count_nonzero', 'cov', 'cross', 'csingle', 'ctypeslib', 'cumprod', 'cumproduct', 'cumsum', 'datetime64', 'datetime_as_string', 'datetime_data', 'deg2rad', 'degrees', 'delete', 'deprecate', 'deprecate_with_doc', 'diag', 'diag_indices', 'diag_indices_from', 'diagflat', 'diagonal', 'diff', 'digitize', 'disp', 'divide', 'division', 'divmod', 'dot', 'double', 'dsplit', 'dstack', 'dtype', 'e', 'ediff1d', 'einsum', 'einsum_path', 'emath', 'empty', 'empty_like', 'equal', 'errstate', 'euler_gamma', 'exp', 'exp2', 'expand_dims', 'expm1', 'extract', 'eye', 'fabs', 'fastCopyAndTranspose', 'fft', 'fill_diagonal', 'find_common_type', 'finfo', 'fix', 'flatiter', 'flatnonzero', 'flexible', 'flip', 'fliplr', 'flipud', 'float', 'float16', 'float32', 'float64', 'float_', 'float_power', 'floating', 'floor', 'floor_divide', 'fmax', 'fmin', 'fmod', 'format_float_positional', 'format_float_scientific', 'format_parser', 'frexp', 'frombuffer', 'fromfile', 'fromfunction', 'fromiter', 'frompyfunc', 'fromregex', 'fromstring', 'full', 'full_like', 'fv', 'gcd', 'generic', 'genfromtxt', 'geomspace', 'get_array_wrap', 'get_include', 'get_printoptions', 'getbufsize', 'geterr', 'geterrcall', 'geterrobj', 'gradient', 'greater', 'greater_equal', 'half', 'hamming', 'hanning', 'heaviside', 'histogram', 'histogram2d', 'histogram_bin_edges', 'histogramdd', 'hsplit', 'hstack', 'hypot', 'i0', 'identity', 'iinfo', 'imag', 'in1d', 'index_exp', 'indices', 'inexact', 'inf', 'info', 'infty', 'inner', 'insert', 'int', 'int0', 'int16', 'int32', 'int64', 'int8', 'int_', 'int_asbuffer', 'intc', 'integer', 'interp', 'intersect1d', 'intp', 'invert', 'ipmt', 'irr', 'is_busday', 'isclose', 'iscomplex', 'iscomplexobj', 'isfinite', 'isfortran', 'isin', 'isinf', 'isnan', 'isnat', 'isneginf', 'isposinf', 'isreal', 'isrealobj', 'isscalar', 'issctype', 'issubclass_', 'issubdtype', 'issubsctype', 'iterable', 'ix_', 'kaiser', 'kron', 'lcm', 'ldexp', 'left_shift', 'less', 'less_equal', 'lexsort', 'lib', 'linalg', 'linspace', 'little_endian', 'load', 'loads', 'loadtxt', 'log', 'log10', 'log1p', 'log2', 'logaddexp', 'logaddexp2', 'logical_and', 'logical_not', 'logical_or', 'logical_xor', 'logspace', 'long', 'longcomplex', 'longdouble', 'longfloat', 'longlong', 'lookfor', 'ma', 'mafromtxt', 'mask_indices', 'mat', 'math', 'matmul', 'matrix', 'matrixlib', 'max', 'maximum', 'maximum_sctype', 'may_share_memory', 'mean', 'median', 'memmap', 'meshgrid', 'mgrid', 'min', 'min_scalar_type', 'minimum', 'mintypecode', 'mirr', 'mod', 'modf', 'moveaxis', 'msort', 'multiply', 'nan', 'nan_to_num', 'nanargmax', 'nanargmin', 'nancumprod', 'nancumsum', 'nanmax', 'nanmean', 'nanmedian', 'nanmin', 'nanpercentile', 'nanprod', 'nanquantile', 'nanstd', 'nansum', 'nanvar', 'nbytes', 'ndarray', 'ndenumerate', 'ndfromtxt', 'ndim', 'ndindex', 'nditer', 'negative', 'nested_iters', 'newaxis', 'nextafter', 'nonzero', 'not_equal', 'nper', 'npv', 'numarray', 'number', 'obj2sctype', 'object', 'object0', 'object_', 'ogrid', 'oldnumeric', 'ones', 'ones_like', 'outer', 'packbits', 'pad', 'partition', 'percentile', 'pi', 'piecewise', 'place', 'pmt', 'poly', 'poly1d', 'polyadd', 'polyder', 'polydiv', 'polyfit', 'polyint', 'polymul', 'polynomial', 'polysub', 'polyval', 'positive', 'power', 'ppmt', 'print_function', 'printoptions', 'prod', 'product', 'promote_types', 'ptp', 'put', 'put_along_axis', 'putmask', 'pv', 'quantile', 'r_', 'rad2deg', 'radians', 'random', 'rate', 'ravel', 'ravel_multi_index', 'real', 'real_if_close', 'rec', 'recarray', 'recfromcsv', 'recfromtxt', 'reciprocal', 'record', 'remainder', 'repeat', 'require', 'reshape', 'resize', 'result_type', 'right_shift', 'rint', 'roll', 'rollaxis', 'roots', 'rot90', 'round', 'round_', 'row_stack', 's_', 'safe_eval', 'save', 'savetxt', 'savez', 'savez_compressed', 'sctype2char', 'sctypeDict', 'sctypeNA', 'sctypes', 'searchsorted', 'select', 'set_numeric_ops', 'set_printoptions', 'set_string_function', 'setbufsize', 'setdiff1d', 'seterr', 'seterrcall', 'seterrobj', 'setxor1d', 'shape', 'shares_memory', 'short', 'show_config', 'sign', 'signbit', 'signedinteger', 'sin', 'sinc', 'single', 'singlecomplex', 'sinh', 'size', 'sometrue', 'sort', 'sort_complex', 'source', 'spacing', 'split', 'sqrt', 'square', 'squeeze', 'stack', 'std', 'str', 'str0', 'str_', 'string_', 'subtract', 'sum', 'swapaxes', 'sys', 'take', 'take_along_axis', 'tan', 'tanh', 'tensordot', 'test', 'testing', 'tile', 'timedelta64', 'trace', 'tracemalloc_domain', 'transpose', 'trapz', 'tri', 'tril', 'tril_indices', 'tril_indices_from', 'trim_zeros', 'triu', 'triu_indices', 'triu_indices_from', 'true_divide', 'trunc', 'typeDict', 'typeNA', 'typecodes', 'typename', 'ubyte', 'ufunc', 'uint', 'uint0', 'uint16', 'uint32', 'uint64', 'uint8', 'uintc', 'uintp', 'ulonglong', 'unicode', 'unicode_', 'union1d', 'unique', 'unpackbits', 'unravel_index', 'unsignedinteger', 'unwrap', 'ushort', 'vander', 'var', 'vdot', 'vectorize', 'version', 'void', 'void0', 'vsplit', 'vstack', 'warnings', 'where', 'who', 'zeros', 'zeros_like']
+>>>
+>>>
+>>>
+>>> students
+[[1, 'Vimal', 111111], [2, 'Kamal', 222222], [3, 'Ajay', 333333], [4, 'Vijay', 444444]]
+>>> type(students)
+<class 'list'>
+>>> students = numpy.arr
+numpy.array(        numpy.array2string( numpy.array_equal(  numpy.array_equiv(  numpy.array_repr(   numpy.array_split(  numpy.array_str(
+>>> students = numpy.array(students)
+>>> type(students)
+<class 'numpy.ndarray'>
+>>> students[0]
+array(['1', 'Vimal', '111111'], dtype='<U11')
+>>> students[1:3]
+array([['2', 'Kamal', '222222'],
+       ['3', 'Ajay', '333333']], dtype='<U11')
+>>> students[1:4]
+array([['2', 'Kamal', '222222'],
+       ['3', 'Ajay', '333333'],
+       ['4', 'Vijay', '444444']], dtype='<U11')
+>>> students[:]
+array([['1', 'Vimal', '111111'],
+       ['2', 'Kamal', '222222'],
+       ['3', 'Ajay', '333333'],
+       ['4', 'Vijay', '444444']], dtype='<U11')
+>>> students[1:4, 1]
+array(['Kamal', 'Ajay', 'Vijay'], dtype='<U11')
+>>> students[:, 1]
+array(['Vimal', 'Kamal', 'Ajay', 'Vijay'], dtype='<U11')
+>>>
+>>> students[:, 0:2]
+array([['1', 'Vimal'],
+       ['2', 'Kamal'],
+       ['3', 'Ajay'],
+       ['4', 'Vijay']], dtype='<U11')
+>>> students[:, 0:3]
+array([['1', 'Vimal', '111111'],
+       ['2', 'Kamal', '222222'],
+       ['3', 'Ajay', '333333'],
+       ['4', 'Vijay', '444444']], dtype='<U11')
+>>> students[:, 1:3]
+array([['Vimal', '111111'],
+       ['Kamal', '222222'],
+       ['Ajay', '333333'],
+       ['Vijay', '444444']], dtype='<U11')
+>>>
+>>>
+>>>
+>>> students
+array([['1', 'Vimal', '111111'],
+       ['2', 'Kamal', '222222'],
+       ['3', 'Ajay', '333333'],
+       ['4', 'Vijay', '444444']], dtype='<U11')
+>>> result = list(students[0:len(students), 1])
+>>> result
+['Vimal', 'Kamal', 'Ajay', 'Vijay']
+>>> result = list(students[:, 1])
+>>> result
+['Vimal', 'Kamal', 'Ajay', 'Vijay']
+>>>
