@@ -116,7 +116,13 @@ Programming Modes:
 		- Difficult to re-run the program without actually typing again or using the history menu(by up/down arrow)
 		- Once you exit the session with exit() command, all the history and written code is gone and is no more avaialable in the second session
 		- Code sharing is difficult from Live Interpreter
-
+	To overcome the disadvantages of the live interpreter we can use Offline mode of using files to write and store the source code.(using text editor or IDEs).
+	And then we can share the source files as is or as python package or in the form of a software.
+	
+	
+- Note:
+	- While using os.system("cmd"), the command "cmd" will be executed by OS only if
+		- 
 
 		
 		
